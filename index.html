@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR INFOTEK | Online IT Training</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e5aa8',
+                        accent: '#ff891c',
+                        darkbg: '#0b1324',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #1e5aa8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #15427d; }
+    </style>
+</head>
+<body class="bg-white text-slate-800 antialiased font-sans">
+
+    <header class="sticky top-0 z-50 backdrop-blur bg-white/90 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="https://via.placeholder.com/150x50/1e5aa8/ffffff?text=AR+INFOTEK" alt="AR INFOTEK" class="h-10 w-auto">
+                <div class="hidden sm:block leading-tight">
+                    <div class="font-extrabold text-lg text-primary">AR INFOTEK</div>
+                    <div class="text-[11px] tracking-wide text-primary uppercase">Online IT Training</div>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#home" class="text-sm font-medium text-slate-700 hover:text-primary transition">Home</a>
+                <a href="#courses" class="text-sm font-medium text-slate-700 hover:text-primary transition">Courses</a>
+                <a href="#why" class="text-sm font-medium text-slate-700 hover:text-primary transition">Why Us</a>
+                <a href="#instructors" class="text-sm font-medium text-slate-700 hover:text-primary transition">Instructors</a>
+                <a href="#testimonials" class="text-sm font-medium text-slate-700 hover:text-primary transition">Testimonials</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="hidden md:inline-flex items-center justify-center px-5 py-2 rounded-2xl font-semibold border-2 border-primary text-primary hover:shadow-lg transition">Talk to Us</a>
+                <a href="#courses" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-2xl font-semibold bg-accent text-white hover:-translate-y-0.5 hover:shadow-lg transition">View Courses</a>
+                
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg border border-slate-200">
+                    <svg class="w-6 h-6 text-darkbg" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 z-50 hidden">
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMenu()"></div>
+            <div class="absolute top-0 right-0 h-full w-72 bg-white shadow-2xl p-6 flex flex-col transition-transform">
+                <div class="flex items-center justify-between mb-8">
+                    <span class="font-extrabold text-darkbg text-xl">Menu</span>
+                    <button onclick="toggleMenu()" class="p-2 text-slate-500 hover:text-red-500">✕</button>
+                </div>
+                <div class="flex flex-col space-y-4 text-lg font-medium text-slate-700">
+                    <a href="#home" onclick="toggleMenu()">Home</a>
+                    <a href="#courses" onclick="toggleMenu()">Courses</a>
+                    <a href="#why" onclick="toggleMenu()">Why AR INFOTEK</a>
+                    <a href="#instructors" onclick="toggleMenu()">Instructors</a>
+                    <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+                    <a href="#contact" onclick="toggleMenu()">Contact</a>
+                </div>
+                <div class="mt-auto grid gap-3">
+                    <a href="#courses" onclick="toggleMenu()" class="text-center py-3 rounded-xl bg-accent text-white font-bold">View Courses</a>
+                    <a href="#contact" onclick="toggleMenu()" class="text-center py-3 rounded-xl border-2 border-primary text-primary font-bold">Talk to Us</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="relative bg-primary pt-16 pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center relative z-10">
+            <div class="lg:col-span-7" data-aos="fade-up">
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 bg-white/20 text-white rounded-full text-xs font-semibold backdrop-blur">Live • Online</span>
+                    <span class="px-3 py-1 bg-white/20 text-white rounded-full text-xs font-semibold backdrop-blur">Small Cohorts</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
+                    Level-Up Your Tech Career with <br>
+                    <span class="bg-white text-accent px-4 py-1 rounded-lg inline-block shadow-lg mt-2">AR INFOTEK</span>
+                </h1>
+                <p class="text-slate-100 text-lg md:text-xl mb-8 max-w-2xl leading-relaxed">
+                    Live instructor-led training in AI/ML, Data Science, DevOps, Cloud (AWS, Azure), Python, and Power BI. Learn by doing with real-time projects.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#courses" class="px-8 py-4 bg-accent text-white rounded-2xl font-bold hover:shadow-xl hover:-translate-y-1 transition">Browse Courses</a>
+                    <a href="#contact" class="px-8 py-4 bg-white text-primary rounded-2xl font-bold hover:shadow-xl hover:-translate-y-1 transition">Get Counselling</a>
+                </div>
+                
+                <div class="mt-12 grid grid-cols-3 gap-4 border-t border-white/20 pt-8">
+                    <div><div class="text-3xl font-extrabold text-white">3k+</div><div class="text-sm text-slate-300">Learners</div></div>
+                    <div><div class="text-3xl font-extrabold text-white">4.8/5</div><div class="text-sm text-slate-300">Rating</div></div>
+                    <div><div class="text-3xl font-extrabold text-white">100%</div><div class="text-sm text-slate-300">Practical</div></div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5" data-aos="fade-left" data-aos-delay="200">
+                <div class="bg-white rounded-3xl p-8 shadow-2xl relative">
+                    <div class="absolute top-0 right-0 p-4 opacity-10"><svg class="w-24 h-24 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/></svg></div>
+                    <h3 class="text-2xl font-bold text-darkbg mb-6">Upcoming Batches</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center justify-between p-3 border rounded-xl hover:border-primary transition bg-slate-50">
+                            <div><div class="font-bold text-primary">AWS Cloud Architect</div><div class="text-xs text-slate-500">25 Nov • Weekdays</div></div>
+                            <a href="#contact" class="text-accent font-bold text-sm">Enroll &rarr;</a>
+                        </li>
+                        <li class="flex items-center justify-between p-3 border rounded-xl hover:border-primary transition bg-slate-50">
+                            <div><div class="font-bold text-primary">Data Science</div><div class="text-xs text-slate-500">02 Dec • Weekends</div></div>
+                            <a href="#contact" class="text-accent font-bold text-sm">Enroll &rarr;</a>
+                        </li>
+                        <li class="flex items-center justify-between p-3 border rounded-xl hover:border-primary transition bg-slate-50">
+                            <div><div class="font-bold text-primary">DevOps Master</div><div class="text-xs text-slate-500">09 Dec • Weekdays</div></div>
+                            <a href="#contact" class="text-accent font-bold text-sm">Enroll &rarr;</a>
+                        </li>
+                    </ul>
+                    <div class="mt-6 text-center">
+                        <a href="#contact" class="inline-block w-full py-3 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition">Request Syllabus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-slate-50 py-10 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-slate-500 text-sm font-semibold uppercase tracking-widest mb-6">Trusted by learners from top companies</p>
+            <div class="flex flex-wrap justify-center gap-8 opacity-60 grayscale">
+                <div class="h-8 w-24 bg-slate-300 rounded"></div>
+                <div class="h-8 w-24 bg-slate-300 rounded"></div>
+                <div class="h-8 w-24 bg-slate-300 rounded"></div>
+                <div class="h-8 w-24 bg-slate-300 rounded"></div>
+                <div class="h-8 w-24 bg-slate-300 rounded"></div>
+            </div>
+        </div>
+    </div>
+
+    <section id="courses" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12">
+                <span class="text-accent font-bold uppercase tracking-wider text-sm">Our Programs</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-darkbg mt-2">In-Demand Tech Skills</h2>
+                <div class="h-1.5 w-20 bg-gradient-to-r from-primary to-accent rounded-full mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-bold">Industry Focused</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-darkbg mb-2">AWS Cloud Architect</h3>
+                    <p class="text-sm text-slate-600 mb-4 flex-grow">Design scalable architectures, VPC, IAM, EC2, Load Balancing & Security.</p>
+                    <div class="text-xs text-slate-500 mb-4 space-y-1">
+                        <p>• 16 Weeks Duration</p>
+                        <p>• Beginner to Advanced</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mt-auto">
+                        <a href="#contact" class="py-2 text-center rounded-xl bg-accent text-white text-sm font-bold">Enroll</a>
+                        <a href="#" class="py-2 text-center rounded-xl border border-primary text-primary text-sm font-bold">Syllabus</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded-full font-bold">Most Popular</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-darkbg mb-2">Data Science & ML</h3>
+                    <p class="text-sm text-slate-600 mb-4 flex-grow">Python, Pandas, Machine Learning models, and MLOps overview.</p>
+                    <div class="text-xs text-slate-500 mb-4 space-y-1">
+                        <p>• 14 Weeks Duration</p>
+                        <p>• Intermediate</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mt-auto">
+                        <a href="#contact" class="py-2 text-center rounded-xl bg-accent text-white text-sm font-bold">Enroll</a>
+                        <a href="#" class="py-2 text-center rounded-xl border border-primary text-primary text-sm font-bold">Syllabus</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full font-bold">Career Switch</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-darkbg mb-2">Cloud & DevOps</h3>
+                    <p class="text-sm text-slate-600 mb-4 flex-grow">AWS/Azure basics, Docker, Kubernetes, CI/CD pipelines & Terraform.</p>
+                    <div class="text-xs text-slate-500 mb-4 space-y-1">
+                        <p>• 12 Weeks Duration</p>
+                        <p>• Intermediate</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mt-auto">
+                        <a href="#contact" class="py-2 text-center rounded-xl bg-accent text-white text-sm font-bold">Enroll</a>
+                        <a href="#" class="py-2 text-center rounded-xl border border-primary text-primary text-sm font-bold">Syllabus</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full font-bold">New</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-darkbg mb-2">Cybersecurity</h3>
+                    <p class="text-sm text-slate-600 mb-4 flex-grow">Network security, SIEM, threat modeling, and Blue Team labs.</p>
+                    <div class="text-xs text-slate-500 mb-4 space-y-1">
+                        <p>• 10 Weeks Duration</p>
+                        <p>• Beginner</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mt-auto">
+                        <a href="#contact" class="py-2 text-center rounded-xl bg-accent text-white text-sm font-bold">Enroll</a>
+                        <a href="#" class="py-2 text-center rounded-xl border border-primary text-primary text-sm font-bold">Syllabus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold text-darkbg">Why AR INFOTEK?</h2>
+                <p class="text-slate-600 mt-4">We designed every course to maximize learning speed and career impact.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <h4 class="text-lg font-bold text-primary mb-2">Live & Interactive</h4>
+                    <p class="text-sm text-slate-600">No boring recordings. Ask doubts live and collaborate in real time with mentors.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <h4 class="text-lg font-bold text-primary mb-2">Project-First</h4>
+                    <p class="text-sm text-slate-600">Ship real apps, dashboards, and deployments you can actually show in interviews.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <h4 class="text-lg font-bold text-primary mb-2">Industry Experts</h4>
+                    <p class="text-sm text-slate-600">Learn directly from senior professionals with deep real-world expertise.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <h4 class="text-lg font-bold text-primary mb-2">Small Cohorts</h4>
+                    <p class="text-sm text-slate-600">Stay accountable with peer learning and dedicated mentor attention.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <h4 class="text-lg font-bold text-primary mb-2">Flexible Schedules</h4>
+                    <p class="text-sm text-slate-600">Weekend and weekday batches designed to fit your busy routine.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+                    <h4 class="text-lg font-bold text-primary mb-2">Certificates</h4>
+                    <p class="text-sm text-slate-600">Get recognized for every skill you master with our course completion certificates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="instructors" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-extrabold text-darkbg mb-12">Meet Our Mentors</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-3xl shadow-sm text-center">
+                    <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200" alt="Ananya" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-lg text-darkbg">Ananya Iyer</h4>
+                    <p class="text-primary text-sm font-medium">Lead Data Scientist</p>
+                    <p class="text-xs text-slate-500 mt-2">8+ yrs Exp • ML & Analytics</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-sm text-center">
+                    <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=200" alt="Rahul" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-lg text-darkbg">Rahul Menon</h4>
+                    <p class="text-primary text-sm font-medium">Cloud Architect</p>
+                    <p class="text-xs text-slate-500 mt-2">10+ yrs Exp • AWS & DevOps</p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-sm text-center">
+                    <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-4 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200" alt="Sana" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="font-bold text-lg text-darkbg">Sana Qureshi</h4>
+                    <p class="text-primary text-sm font-medium">Sr. Frontend Engineer</p>
+                    <p class="text-xs text-slate-500 mt-2">7+ yrs Exp • React & UX</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-extrabold text-darkbg mb-4">Simple, Transparent Pricing</h2>
+            <div class="grid md:grid-cols-3 gap-8 mt-10">
+                <div class="border border-slate-200 rounded-3xl p-8 hover:border-primary transition">
+                    <h4 class="text-xl font-bold text-darkbg">Basic (Group)</h4>
+                    <div class="mt-4 flex items-baseline gap-2">
+                        <span class="text-3xl font-black text-primary">₹2,999</span>
+                        <span class="text-sm text-slate-500">/ course</span>
+                    </div>
+                    <ul class="mt-6 space-y-3 text-sm text-slate-600">
+                        <li class="flex gap-2">✓ Live group sessions</li>
+                        <li class="flex gap-2">✓ Assignments & quizzes</li>
+                        <li class="flex gap-2">✓ Completion certificate</li>
+                    </ul>
+                    <a href="#contact" class="block w-full text-center mt-8 py-3 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition">Join Group Batch</a>
+                </div>
+
+                <div class="border-2 border-accent rounded-3xl p-8 relative shadow-xl bg-white transform md:-translate-y-4">
+                    <div class="absolute top-0 right-0 bg-accent text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">RECOMMENDED</div>
+                    <h4 class="text-xl font-bold text-darkbg">Standard (1:1)</h4>
+                    <div class="mt-4 flex items-baseline gap-2">
+                        <span class="text-3xl font-black text-primary">₹14,999</span>
+                        <span class="text-sm text-slate-500">/ course</span>
+                    </div>
+                    <ul class="mt-6 space-y-3 text-sm text-slate-600">
+                        <li class="flex gap-2 text-darkbg font-medium">✓ Everything in Basic</li>
+                        <li class="flex gap-2 text-darkbg font-medium">✓ 1:1 Mentor Support</li>
+                        <li class="flex gap-2 text-darkbg font-medium">✓ Personalized Project</li>
+                    </ul>
+                    <a href="#contact" class="block w-full text-center mt-8 py-3 rounded-xl bg-accent text-white font-bold hover:shadow-lg transition">Start 1:1 Training</a>
+                </div>
+
+                <div class="border border-slate-200 rounded-3xl p-8 hover:border-primary transition">
+                    <h4 class="text-xl font-bold text-darkbg">Advanced</h4>
+                    <div class="mt-4 flex items-baseline gap-2">
+                        <span class="text-3xl font-black text-primary">₹24,999</span>
+                        <span class="text-sm text-slate-500">/ course</span>
+                    </div>
+                    <ul class="mt-6 space-y-3 text-sm text-slate-600">
+                        <li class="flex gap-2">✓ Everything in Standard</li>
+                        <li class="flex gap-2">✓ Long-term Mentorship</li>
+                        <li class="flex gap-2">✓ Dedicated Q&A</li>
+                    </ul>
+                    <a href="#contact" class="block w-full text-center mt-8 py-3 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition">Join Advanced</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-extrabold text-darkbg mb-12">What our learners say</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-8 rounded-3xl shadow-sm">
+                    <p class="text-slate-600 italic">"The AWS Cloud Architect course's labs on VPC and IAM helped me design and deploy a production-ready architecture."</p>
+                    <div class="mt-6 font-bold text-darkbg">Harish Kumar</div>
+                    <div class="text-xs text-primary">Cloud Engineer @ StartupX</div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm">
+                    <p class="text-slate-600 italic">"Data Science & ML with Python, Pandas, and model building gave me true end-to-end skills for my new job."</p>
+                    <div class="mt-6 font-bold text-darkbg">Vikram Rao</div>
+                    <div class="text-xs text-primary">Data Analyst @ RetailCorp</div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm">
+                    <p class="text-slate-600 italic">"The Cloud & DevOps track's Docker/Kubernetes pipelines and CI/CD practice made real deployments feel easy."</p>
+                    <div class="mt-6 font-bold text-darkbg">Neha Sharma</div>
+                    <div class="text-xs text-primary">DevOps Engineer @ FinTechCo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-6">
+        <div class="max-w-7xl mx-auto rounded-3xl p-12 bg-gradient-to-r from-primary to-blue-600 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+            <div>
+                <h3 class="text-3xl font-black">Ready to start your journey?</h3>
+                <p class="mt-2 text-blue-100">Get a free counselling call and course roadmap tailored to you.</p>
+            </div>
+            <div class="flex gap-4">
+                <a href="#contact" class="px-6 py-3 bg-accent text-white rounded-xl font-bold hover:shadow-lg transition">Book a Call</a>
+                <a href="#courses" class="px-6 py-3 bg-white text-primary rounded-xl font-bold hover:shadow-lg transition">Explore Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-lg">
+                <h3 class="text-2xl font-bold text-darkbg mb-6">Talk to an advisor</h3>
+                <form action="https://formspree.io/f/your_form_id" method="POST" class="grid gap-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-sm font-semibold text-darkbg">Full Name</label>
+                            <input type="text" name="name" class="mt-1 w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:outline-none" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-darkbg">Email</label>
+                            <input type="email" name="email" class="mt-1 w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:outline-none" placeholder="you@example.com" required>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-sm font-semibold text-darkbg">Phone</label>
+                            <input type="tel" name="phone" class="mt-1 w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:outline-none" placeholder="+91-XXXX-XXXXXX">
+                        </div>
+                        <div>
+                            <label class="text-sm font-semibold text-darkbg">Course Interest</label>
+                            <select name="course" class="mt-1 w-full px-4 py-3 rounded-xl border border-slate-300 bg-white focus:border-primary focus:outline-none">
+                                <option>AWS Cloud Architect</option>
+                                <option>Data Science & ML</option>
+                                <option>Cloud & DevOps</option>
+                                <option>Cybersecurity</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-sm font-semibold text-darkbg">Message</label>
+                        <textarea name="message" rows="4" class="mt-1 w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:outline-none" placeholder="Tell us about your goals..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-xl bg-primary text-white font-bold hover:shadow-xl transition">Send Message</button>
+                    <p class="text-xs text-center text-slate-500 mt-2">We typically reply within 24 hours.</p>
+                </form>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100">
+                    <h4 class="text-xl font-bold text-darkbg mb-2">Batches & Timings</h4>
+                    <p class="text-slate-600 mb-4">Weekday: Mon-Fri, 7–9 PM IST <br> Weekend: Sat-Sun, 10 AM–1 PM IST</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-white px-3 py-1 rounded-full text-xs font-bold border">Live Online</span>
+                        <span class="bg-white px-3 py-1 rounded-full text-xs font-bold border">Recordings Access</span>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100">
+                    <h4 class="text-xl font-bold text-darkbg mb-4">Reach Us</h4>
+                    <ul class="space-y-3 text-slate-700">
+                        <li><span class="font-bold text-primary">Email:</span> admissions@arinfotek.co.in</li>
+                        <li><span class="font-bold text-primary">Phone:</span> +91-9487107253</li>
+                        <li><span class="font-bold text-primary">WhatsApp:</span> +91-9487107253</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-primary text-slate-200 py-12">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-2xl font-black text-white">AR INFOTEK</span>
+                </div>
+                <p class="text-sm text-slate-300">Practical, mentor-led online IT training to accelerate your career.</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-accent mb-4">Programs</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#courses" class="hover:text-white">AWS Architect</a></li>
+                    <li><a href="#courses" class="hover:text-white">Data Science</a></li>
+                    <li><a href="#courses" class="hover:text-white">DevOps</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-accent mb-4">Company</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#why" class="hover:text-white">Why Us</a></li>
+                    <li><a href="#instructors" class="hover:text-white">Instructors</a></li>
+                    <li><a href="#testimonials" class="hover:text-white">Testimonials</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-accent mb-4">Legal</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white">Terms</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center text-xs text-slate-400 mt-12 border-t border-white/10 pt-6">
+            © 2025 AR INFOTEK – All rights reserved.
+        </div>
+    </footer>
+
+    <a href="#contact" class="fixed bottom-6 right-6 bg-accent text-white px-6 py-3 rounded-full font-bold shadow-2xl hover:scale-105 transition z-40 border-2 border-white">
+        Enroll Now
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({ duration: 800, once: true });
+
+        // Mobile Menu Logic
+        const menu = document.getElementById('mobile-menu');
+        function toggleMenu() {
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
