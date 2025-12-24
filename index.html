@@ -30,28 +30,30 @@
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #1e5aa8; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #15427d; }
-        @keyframes launchSequence {
+@keyframes launchSequence {
         /* Phase 1: Engine Start (Rumble at logo) */
         0% {
             opacity: 0;
-            transform: translate(0, 0) scale(0.5) rotate(45deg);
+            /* Start rotated 15deg (Flatter angle) */
+            transform: translate(0, 0) scale(0.5) rotate(15deg);
         }
         10% {
             opacity: 1;
-            transform: translate(0, 0) scale(1) rotate(45deg);
+            transform: translate(0, 0) scale(1) rotate(15deg);
         }
-        20% {
-            transform: translate(-2px, 2px) scale(1) rotate(44deg); /* Shake */
-        }
-        30% {
-            transform: translate(2px, -2px) scale(1) rotate(46deg); /* Shake */
-        }
+        /* Rumble effect (Shaking in place) */
+        15% { transform: translate(-2px, 1px) scale(1) rotate(14deg); }
+        20% { transform: translate(2px, -1px) scale(1) rotate(16deg); }
+        25% { transform: translate(-2px, 1px) scale(1) rotate(14deg); }
         
-        /* Phase 2: Blast Off! */
+        /* Phase 2: Blast Off! (Flatter Slope) */
         100% {
             opacity: 0;
-            /* Flies to top-right of screen */
-            transform: translate(80vw, -50vh) scale(0.8) rotate(45deg);
+            /* translate(90vw, -10vh) means:
+               Move 90% across the screen to the right
+               Move only 10% up (Very shallow slope)
+            */
+            transform: translate(90vw, -10vh) scale(0.6) rotate(15deg);
         }
     }
 
@@ -61,26 +63,28 @@
         left: 50%;
         width: 40px; 
         height: 40px;
-        z-index: 0; /* Behind the logo text initially */
+        z-index: 0; 
         pointer-events: none;
         
-        /* Run animation: 2.5 seconds total, wait 1s before starting */
-        animation: launchSequence 2.5s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+        /* Changed from 2.5s to 5s for a much slower flight */
+        animation: launchSequence 5s ease-in-out forwards;
+        
+        /* Wait 1 second before starting */
         animation-delay: 1s;
-        opacity: 0; /* Hidden until animation starts */
+        opacity: 0; 
     }
     
-    /* Optional: A subtle glow trail */
+    /* Rocket Exhaust Glow */
     .rocket-launch::after {
         content: '';
         position: absolute;
-        bottom: -10px;
-        left: -10px;
-        width: 20px;
-        height: 20px;
+        bottom: -5px;
+        left: -5px;
+        width: 25px;
+        height: 25px;
         background: radial-gradient(circle, #ff891c 0%, transparent 70%);
-        filter: blur(5px);
-        opacity: 0.8;
+        filter: blur(4px);
+        opacity: 0.6;
     }
     </style>
 </head>
