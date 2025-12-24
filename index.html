@@ -30,6 +30,33 @@
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #1e5aa8; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #15427d; }
+        @keyframes flyOutPath {
+        0% {
+            opacity: 0;
+            /* Start exactly centered on the logo, small & flat */
+            transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+        }
+        20% {
+            opacity: 1;
+            /* Quickly appear and start moving right and tilting up */
+            transform: translate(40px, -30px) scale(1) rotate(10deg);
+        }
+        100% {
+            opacity: 0;
+            /* Fly far off to the top right, getting larger and fading out */
+            /* using vw (viewport width) ensures it flies off screens of all sizes */
+            transform: translate(calc(60vw), -150px) scale(1.5) rotate(25deg);
+        }
+    }
+
+    .animate-plane-launch {
+        /* Run the animation once, take 4 seconds, with a smooth start/end curve */
+        animation: flyOutPath 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        /* Wait 0.5s after page load before starting */
+        animation-delay: 0.5s;
+        /* Ensure it's invisible before the animation starts */
+        opacity: 0;
+    }
     </style>
 </head>
 <body class="bg-white text-slate-800 antialiased font-sans">
@@ -37,8 +64,14 @@
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
             
-            <a href="#home" class="flex items-center hover:opacity-80 transition duration-300">
-                <img src="arinfotek_logo.png" alt="AR INFOTEK" class="h-10 md:h-14 w-auto object-contain">
+            <a href="#home" class="relative group flex items-center hover:opacity-80 transition duration-300 z-20">
+                <img src="arinfotek_logo.png" alt="AR INFOTEK" class="h-10 md:h-14 w-auto object-contain relative z-10">
+                
+                <div class="absolute top-1/2 left-1/2 pointer-events-none animate-plane-launch z-0">
+                    <svg class="w-8 h-8 text-primary transform -rotate-90" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                    </svg>
+                </div>
             </a>
 
             <nav class="hidden md:flex items-center gap-1 bg-slate-50/50 p-1 rounded-full border border-slate-100">
