@@ -81,87 +81,107 @@
         </div>
     </header>
 
-<section id="home" class="relative bg-primary overflow-hidden min-h-[90vh] flex items-center">
+<section id="home" class="relative overflow-hidden min-h-[90vh] flex items-center bg-[#0f172a]">
+        
+        <div class="absolute inset-0 bg-gradient-to-br from-[#1e5aa8] via-[#103466] to-[#0f172a]"></div>
+        
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-400/20 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-accent/20 rounded-full blur-[100px]"></div>
+        
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 40px 40px;"></div>
+
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-8 items-center relative z-10 w-full">
             
             <div class="lg:col-span-8 flex flex-col justify-center items-center text-center" data-aos="fade-up">
                 
-                <div class="flex flex-wrap justify-center gap-3 mb-5">
-                    <span class="px-3 py-1 bg-white/20 text-white rounded-full text-[10px] lg:text-xs font-bold backdrop-blur border border-white/10 shadow-sm">Live • Online</span>
-                    <span class="px-3 py-1 bg-white/20 text-white rounded-full text-[10px] lg:text-xs font-bold backdrop-blur border border-white/10 shadow-sm">Small Cohorts</span>
+                <div class="flex flex-wrap justify-center gap-3 mb-6">
+                    <span class="px-4 py-1.5 bg-white/10 text-white rounded-full text-[10px] lg:text-xs font-bold backdrop-blur-md border border-white/20 shadow-lg tracking-wide uppercase">Live • Online</span>
+                    <span class="px-4 py-1.5 bg-white/10 text-white rounded-full text-[10px] lg:text-xs font-bold backdrop-blur-md border border-white/20 shadow-lg tracking-wide uppercase">Small Cohorts</span>
                 </div>
 
-                <h1 class="text-3xl lg:text-5xl font-black text-white leading-relaxed mb-4">
+                <h1 class="text-3xl lg:text-6xl font-black text-white leading-tight mb-6 drop-shadow-lg">
                     Level-Up Your Tech Career with <br class="hidden lg:block"> 
-                    <span class="bg-white text-accent px-3 py-1 rounded-lg inline-block shadow-lg align-middle mt-2 lg:mt-0">AR INFOTEK</span>
+                    <span class="relative inline-block mt-3 lg:mt-0">
+                        <span class="absolute -inset-1 bg-accent/50 blur opacity-50 rounded-lg"></span>
+                        <span class="relative bg-white text-accent px-4 py-1 rounded-xl inline-block shadow-2xl align-middle">AR INFOTEK</span>
+                    </span>
                 </h1>
 
-                <p class="text-slate-100 text-sm lg:text-base mb-8 max-w-2xl leading-relaxed opacity-95 font-medium mx-auto">
+                <p class="text-blue-100 text-sm lg:text-lg mb-8 max-w-2xl leading-relaxed font-medium mx-auto text-shadow-sm">
                     Live instructor-led training in AI/ML, Data Science, DevOps, Cloud (AWS, Azure), Python, and Power BI. Learn by doing.
                 </p>
 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
-                    <div class="flex gap-3">
-                        <a href="#courses" class="px-6 py-3 bg-accent text-white rounded-xl font-bold hover:shadow-xl hover:-translate-y-1 transition text-xs lg:text-sm whitespace-nowrap">Browse Courses</a>
-                        <a href="#contact" class="px-6 py-3 bg-white text-primary rounded-xl font-bold hover:shadow-xl hover:-translate-y-1 transition text-xs lg:text-sm whitespace-nowrap">Get Counselling</a>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-8 w-full">
+                    <div class="flex gap-4">
+                        <a href="#courses" class="px-8 py-3.5 bg-gradient-to-r from-accent to-orange-600 text-white rounded-xl font-bold hover:shadow-[0_0_20px_rgba(255,137,28,0.4)] hover:-translate-y-1 transition text-sm whitespace-nowrap border border-white/10">Browse Courses</a>
+                        <a href="#contact" class="px-8 py-3.5 bg-white/10 backdrop-blur-md text-white border border-white/30 rounded-xl font-bold hover:bg-white hover:text-primary hover:shadow-lg hover:-translate-y-1 transition text-sm whitespace-nowrap">Get Counselling</a>
                     </div>
 
-                    <div class="flex gap-5 border-l-0 sm:border-l border-white/20 pl-0 sm:pl-6 mt-2 sm:mt-0">
-                        <div class="text-center">
-                            <div class="text-lg lg:text-2xl font-extrabold text-white leading-none">3k+</div>
-                            <div class="text-[10px] text-slate-200 uppercase mt-1 font-bold">Learners</div>
+                    <div class="flex gap-8 border-l-0 sm:border-l border-white/20 pl-0 sm:pl-8 mt-4 sm:mt-0">
+                        <div class="text-center group cursor-default">
+                            <div class="text-xl lg:text-3xl font-black text-white group-hover:text-accent transition duration-300">3k+</div>
+                            <div class="text-[10px] text-blue-200 uppercase mt-1 font-bold tracking-wider">Learners</div>
                         </div>
-                        <div class="text-center">
-                            <div class="text-lg lg:text-2xl font-extrabold text-white leading-none">4.8/5</div>
-                            <div class="text-[10px] text-slate-200 uppercase mt-1 font-bold">Rating</div>
+                        <div class="text-center group cursor-default">
+                            <div class="text-xl lg:text-3xl font-black text-white group-hover:text-accent transition duration-300">4.8/5</div>
+                            <div class="text-[10px] text-blue-200 uppercase mt-1 font-bold tracking-wider">Rating</div>
                         </div>
-                        <div class="text-center">
-                            <div class="text-lg lg:text-2xl font-extrabold text-white leading-none">100%</div>
-                            <div class="text-[10px] text-slate-200 uppercase mt-1 font-bold">Practical</div>
+                        <div class="text-center group cursor-default">
+                            <div class="text-xl lg:text-3xl font-black text-white group-hover:text-accent transition duration-300">100%</div>
+                            <div class="text-[10px] text-blue-200 uppercase mt-1 font-bold tracking-wider">Practical</div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="lg:col-span-4" data-aos="fade-left" data-aos-delay="200">
-                <div class="bg-white rounded-3xl p-5 shadow-2xl relative border border-slate-200">
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-lg font-bold text-darkbg">Upcoming Batches</h3>
-                        <svg class="w-6 h-6 text-primary opacity-20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.5-1.25L12 8.5l-2.5 1.25L12 11zm0 2.5l-5-2.5-5 2.5L12 22l10-8.5-5-2.5-5 2.5z"/></svg>
+                <div class="bg-white/95 backdrop-blur-xl rounded-3xl p-6 shadow-2xl relative border border-white/40 ring-4 ring-white/10">
+                    
+                    <div class="flex justify-between items-center mb-5 border-b border-slate-100 pb-3">
+                        <h3 class="text-lg font-bold text-slate-800">Upcoming Batches</h3>
+                        <div class="bg-blue-50 p-1.5 rounded-lg">
+                            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                        </div>
                     </div>
                     
                     <ul class="space-y-3">
-                        <li class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 hover:border-primary transition group">
+                        <li class="bg-white p-3 rounded-2xl border border-slate-100 hover:border-accent/50 hover:shadow-md transition group shadow-sm">
                             <div class="flex justify-between items-center">
                                 <div>
-                                    <div class="font-bold text-primary text-sm">AWS Architect</div>
-                                    <div class="text-[10px] text-slate-500 font-semibold">25 Nov • Weekdays</div>
+                                    <div class="font-bold text-slate-800 text-sm group-hover:text-primary transition">AWS Architect</div>
+                                    <div class="text-[11px] text-slate-500 font-medium mt-0.5 flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> 25 Nov • Weekdays
+                                    </div>
                                 </div>
-                                <a href="#contact" class="text-[10px] font-bold text-accent bg-orange-50 px-3 py-1.5 rounded border border-orange-100 hover:bg-accent hover:text-white transition">Enroll</a>
+                                <a href="#contact" class="text-[10px] font-bold text-white bg-accent px-3 py-1.5 rounded-lg shadow-sm hover:bg-orange-600 transition">Enroll</a>
                             </div>
                         </li>
-                        <li class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 hover:border-primary transition group">
+                        <li class="bg-white p-3 rounded-2xl border border-slate-100 hover:border-accent/50 hover:shadow-md transition group shadow-sm">
                             <div class="flex justify-between items-center">
                                 <div>
-                                    <div class="font-bold text-primary text-sm">Data Science</div>
-                                    <div class="text-[10px] text-slate-500 font-semibold">02 Dec • Weekends</div>
+                                    <div class="font-bold text-slate-800 text-sm group-hover:text-primary transition">Data Science</div>
+                                    <div class="text-[11px] text-slate-500 font-medium mt-0.5 flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> 02 Dec • Weekends
+                                    </div>
                                 </div>
-                                <a href="#contact" class="text-[10px] font-bold text-accent bg-orange-50 px-3 py-1.5 rounded border border-orange-100 hover:bg-accent hover:text-white transition">Enroll</a>
+                                <a href="#contact" class="text-[10px] font-bold text-white bg-accent px-3 py-1.5 rounded-lg shadow-sm hover:bg-orange-600 transition">Enroll</a>
                             </div>
                         </li>
-                        <li class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 hover:border-primary transition group">
+                        <li class="bg-white p-3 rounded-2xl border border-slate-100 hover:border-accent/50 hover:shadow-md transition group shadow-sm">
                             <div class="flex justify-between items-center">
                                 <div>
-                                    <div class="font-bold text-primary text-sm">DevOps Master</div>
-                                    <div class="text-[10px] text-slate-500 font-semibold">09 Dec • Weekdays</div>
+                                    <div class="font-bold text-slate-800 text-sm group-hover:text-primary transition">DevOps Master</div>
+                                    <div class="text-[11px] text-slate-500 font-medium mt-0.5 flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> 09 Dec • Weekdays
+                                    </div>
                                 </div>
-                                <a href="#contact" class="text-[10px] font-bold text-accent bg-orange-50 px-3 py-1.5 rounded border border-orange-100 hover:bg-accent hover:text-white transition">Enroll</a>
+                                <a href="#contact" class="text-[10px] font-bold text-white bg-accent px-3 py-1.5 rounded-lg shadow-sm hover:bg-orange-600 transition">Enroll</a>
                             </div>
                         </li>
                     </ul>
 
-                    <div class="mt-4">
-                        <a href="#contact" class="block w-full text-center py-2.5 rounded-xl border-2 border-primary text-primary font-bold text-xs hover:bg-primary hover:text-white transition">
+                    <div class="mt-5">
+                        <a href="#contact" class="block w-full text-center py-3 rounded-xl border-2 border-primary/10 text-primary font-bold text-xs hover:bg-primary hover:text-white hover:border-primary transition uppercase tracking-wide">
                             Request Syllabus
                         </a>
                     </div>
