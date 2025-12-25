@@ -35,55 +35,51 @@
 </head>
 <body class="bg-white text-slate-800 antialiased font-sans">
 
-<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
             
-<a href="#home" class="flex items-center hover:opacity-90 transition">
-                <img src="arinfotek_logo.png" alt="AR INFOTEK" class="h-10 md:h-14 w-auto object-contain">
+            <a href="#home" class="flex items-center hover:opacity-90 transition">
+                <img src="arinfotek_logo.png" alt="AR INFOTEK" class="h-9 md:h-11 w-auto object-contain">
             </a>
 
-            <nav class="hidden md:flex items-center gap-1 bg-slate-50/50 p-1 rounded-full border border-slate-100">
-                <a href="#home" class="px-5 py-2 text-sm font-bold text-slate-600 rounded-full hover:bg-white hover:text-primary hover:shadow-md transition-all duration-300">Home</a>
-                <a href="#courses" class="px-5 py-2 text-sm font-bold text-slate-600 rounded-full hover:bg-white hover:text-primary hover:shadow-md transition-all duration-300">Courses</a>
-                <a href="#why" class="px-5 py-2 text-sm font-bold text-slate-600 rounded-full hover:bg-white hover:text-primary hover:shadow-md transition-all duration-300">Why Us</a>
-                <a href="#instructors" class="px-5 py-2 text-sm font-bold text-slate-600 rounded-full hover:bg-white hover:text-primary hover:shadow-md transition-all duration-300">Mentors</a>
+            <nav class="hidden md:flex items-center gap-1 bg-slate-50 p-1 rounded-full border border-slate-100">
+                <a href="#home" class="px-4 py-1.5 text-xs lg:text-sm font-bold text-slate-600 rounded-full hover:bg-white hover:text-primary hover:shadow-md transition-all duration-300">Home</a>
+                <a href="#courses" class="px-4 py-1.5 text-xs lg:text-sm font-bold text-slate-600 rounded-full hover:bg-white hover:text-primary hover:shadow-md transition-all duration-300">Courses</a>
+                <a href="#why" class="px-4 py-1.5 text-xs lg:text-sm font-bold text-slate-600 rounded-full hover:bg-white hover:text-primary hover:shadow-md transition-all duration-300">Why Us</a>
+                <a href="#instructors" class="px-4 py-1.5 text-xs lg:text-sm font-bold text-slate-600 rounded-full hover:bg-white hover:text-primary hover:shadow-md transition-all duration-300">Mentors</a>
             </nav>
 
-            <div class="flex items-center gap-4">
-                <a href="#contact" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-xl font-bold border-2 border-primary/20 text-primary hover:border-primary hover:bg-primary/5 transition text-sm">
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="hidden md:inline-flex items-center justify-center px-5 py-2 rounded-lg font-bold border-2 border-primary text-primary hover:bg-primary/5 transition text-xs lg:text-sm">
                     Talk to Us
                 </a>
-                
-                <a href="#courses" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-xl font-bold bg-gradient-to-r from-accent to-orange-600 text-white shadow-lg hover:shadow-orange-200 hover:-translate-y-0.5 transition text-sm">
+                <a href="#courses" class="hidden md:inline-flex items-center justify-center px-5 py-2 rounded-lg font-bold bg-gradient-to-r from-accent to-orange-600 text-white shadow-md hover:shadow-orange-200 hover:-translate-y-0.5 transition text-xs lg:text-sm">
                     View Courses
                 </a>
                 
-                <button id="mobile-menu-btn" onclick="toggleMenu()" class="md:hidden p-2 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 transition">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <button id="mobile-menu-btn" onclick="toggleMenu()" class="md:hidden p-1.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
         </div>
 
         <div id="mobile-menu" class="fixed inset-0 z-50 hidden">
             <div class="absolute inset-0 bg-slate-900/20 backdrop-blur-sm" onclick="toggleMenu()"></div>
-            
-            <div class="absolute top-0 right-0 h-full w-80 bg-white shadow-2xl p-6 flex flex-col transition-transform">
-                <div class="flex items-center justify-between mb-8">
-                    <div class="font-black text-xl text-primary tracking-tight">MENU</div>
-                    <button onclick="toggleMenu()" class="p-2 text-slate-400 hover:text-red-500 bg-slate-50 rounded-lg">✕</button>
+            <div class="absolute top-0 right-0 h-full w-72 bg-white shadow-2xl p-6 flex flex-col transition-transform">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="font-black text-lg text-primary tracking-tight">MENU</div>
+                    <button onclick="toggleMenu()" class="p-1.5 text-slate-400 hover:text-red-500 bg-slate-50 rounded-lg">✕</button>
                 </div>
-                
-                <div class="flex flex-col space-y-2">
-                    <a href="#home" onclick="toggleMenu()" class="block px-4 py-3 rounded-xl text-slate-600 font-bold hover:bg-slate-50 hover:text-primary transition">Home</a>
-                    <a href="#courses" onclick="toggleMenu()" class="block px-4 py-3 rounded-xl text-slate-600 font-bold hover:bg-slate-50 hover:text-primary transition">Courses</a>
-                    <a href="#why" onclick="toggleMenu()" class="block px-4 py-3 rounded-xl text-slate-600 font-bold hover:bg-slate-50 hover:text-primary transition">Why AR INFOTEK</a>
-                    <a href="#instructors" onclick="toggleMenu()" class="block px-4 py-3 rounded-xl text-slate-600 font-bold hover:bg-slate-50 hover:text-primary transition">Instructors</a>
-                    <a href="#contact" onclick="toggleMenu()" class="block px-4 py-3 rounded-xl text-slate-600 font-bold hover:bg-slate-50 hover:text-primary transition">Contact</a>
+                <div class="flex flex-col space-y-1">
+                    <a href="#home" onclick="toggleMenu()" class="block px-4 py-2.5 rounded-lg text-slate-600 font-bold hover:bg-slate-50 hover:text-primary transition">Home</a>
+                    <a href="#courses" onclick="toggleMenu()" class="block px-4 py-2.5 rounded-lg text-slate-600 font-bold hover:bg-slate-50 hover:text-primary transition">Courses</a>
+                    <a href="#why" onclick="toggleMenu()" class="block px-4 py-2.5 rounded-lg text-slate-600 font-bold hover:bg-slate-50 hover:text-primary transition">Why AR INFOTEK</a>
+                    <a href="#instructors" onclick="toggleMenu()" class="block px-4 py-2.5 rounded-lg text-slate-600 font-bold hover:bg-slate-50 hover:text-primary transition">Instructors</a>
+                    <a href="#contact" onclick="toggleMenu()" class="block px-4 py-2.5 rounded-lg text-slate-600 font-bold hover:bg-slate-50 hover:text-primary transition">Contact</a>
                 </div>
-
                 <div class="mt-auto grid gap-3">
-                    <a href="#courses" onclick="toggleMenu()" class="text-center py-3.5 rounded-xl bg-accent text-white font-bold shadow-lg shadow-orange-200">View Courses</a>
-                    <a href="#contact" onclick="toggleMenu()" class="text-center py-3.5 rounded-xl border-2 border-primary text-primary font-bold">Talk to Us</a>
+                    <a href="#courses" onclick="toggleMenu()" class="text-center py-3 rounded-lg bg-accent text-white font-bold shadow-lg shadow-orange-200">View Courses</a>
+                    <a href="#contact" onclick="toggleMenu()" class="text-center py-3 rounded-lg border-2 border-primary text-primary font-bold">Talk to Us</a>
                 </div>
             </div>
         </div>
