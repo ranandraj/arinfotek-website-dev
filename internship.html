@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internship Application - AR INFOTEK</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1e5aa8',
+            accent: '#ff891c',
+            darkbg: '#0b1324',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .hero-bg {
+      background: linear-gradient(to bottom right, #1e5aa8, #103466, #0f172a);
+    }
+    .form-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+    }
+  </style>
+</head>
+<body class="hero-bg min-h-screen">
+
+  <!-- Full Stretch Top Bar -->
+  <header class="bg-white py-6 shadow-sm border-b border-slate-200">
+    <div class="w-full px-6">
+      <h1 class="text-3xl font-black tracking-tight text-center text-primary">
+        AR INFOTEK - Application for Internship
+      </h1>
+    </div>
+  </header>
+
+  <div class="max-w-3xl mx-auto px-6 py-12">
+    <div class="text-center mb-12">
+      <h2 class="text-5xl font-black text-white leading-tight">Internship Application</h2>
+    </div>
+
+    <div class="form-card rounded-3xl p-10 shadow-2xl border border-white/20">
+      <form id="myForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSecUB6CIz1nubruzj1BUYkHrHNPILcG3AHSO5h19Am16U-iyg/formResponse"
+            method="POST"
+            target="hidden_iframe"
+            enctype="multipart/form-data"
+            class="space-y-8">
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Full Name <span class="text-red-500">*</span></label>
+            <input type="text" name="entry.1367685117" required class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary text-lg">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Date of Birth <span class="text-red-500">*</span></label>
+            <input type="date" name="entry.1946924470" required class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-2">Gender <span class="text-red-500">*</span></label>
+          <select name="entry.675238853" required class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary bg-white">
+            <option value="">Select Gender</option>
+            <option value="MALE">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Contact Number <span class="text-red-500">*</span></label>
+            <input type="tel" name="entry.1805792394" required class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Alternate Number <span class="text-red-500">*</span></label>
+            <input type="tel" name="entry.181938629" required class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-2">Home Address <span class="text-red-500">*</span></label>
+          <textarea name="entry.1238312499" rows="3" required class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary"></textarea>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">College Name <span class="text-red-500">*</span></label>
+            <input type="text" name="entry.1573054466" required class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Course</label>
+            <input type="text" name="entry.2146682057" class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary">
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Department</label>
+            <input type="text" name="entry.663595307" class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Year <span class="text-red-500">*</span></label>
+            <select name="entry.1419686933" required class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary bg-white">
+              <option value="">Select</option>
+              <option value="first">First</option>
+              <option value="second">Second</option>
+              <option value="third">Third</option>
+              <option value="fourth">Fourth</option>
+              <option value="fifth">Fifth</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Semester <span class="text-red-500">*</span></label>
+            <select name="entry.1118309627" required class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary bg-white">
+              <option value="">Select</option>
+              <option value="first">First</option>
+              <option value="second">Second</option>
+              <option value="third">Third</option>
+              <option value="fourth">Fourth</option>
+              <option value="fifth">Fifth</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-2">Aadhar Number</label>
+          <input type="text" name="entry.253833617" class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary">
+        </div>
+
+        <div class="space-y-8 pt-6 border-t border-slate-200">
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Passport Size Photo <span class="text-red-500">*</span></label>
+            <input type="file" name="entry.362937632" accept="image/*" required class="w-full file:mr-4 file:py-3 file:px-6 file:rounded-2xl file:border-0 file:bg-primary file:text-white file:font-medium">
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">College ID Card <span class="text-red-500">*</span></label>
+            <input type="file" name="entry.1158056919" accept="image/*,.pdf" required class="w-full file:mr-4 file:py-3 file:px-6 file:rounded-2xl file:border-0 file:bg-primary file:text-white file:font-medium">
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Resume (Optional)</label>
+            <input type="file" name="entry.1460093277" accept=".pdf,.doc,.docx" class="w-full file:mr-4 file:py-3 file:px-6 file:rounded-2xl file:border-0 file:bg-primary file:text-white file:font-medium">
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-6 bg-gradient-to-r from-accent to-orange-600 text-white font-bold text-lg rounded-2xl hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mt-8">
+          Submit Internship Application
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  <script>
+    function showThankYou() {
+      document.querySelector('.form-card').innerHTML = `
+        <div class="text-center py-20 px-6">
+          <div class="text-7xl mb-6">✅</div>
+          <h2 class="text-3xl font-bold text-green-600 mb-3">Application Submitted Successfully!</h2>
+          <p class="text-slate-600 text-lg">Thank you! Our team will review your application and contact you soon.</p>
+          <button onclick="location.reload()" class="mt-10 px-10 py-4 bg-primary text-white font-bold rounded-2xl hover:bg-blue-700 transition">
+            Submit Another Application
+          </button>
+        </div>
+      `;
+    }
+
+    window.onload = function() {
+      const form = document.getElementById("myForm");
+      const iframe = document.querySelector("iframe");
+
+      form.onsubmit = () => setTimeout(showThankYou, 1200);
+      iframe.onload = showThankYou;
+    };
+  </script>
+</body>
+</html>
