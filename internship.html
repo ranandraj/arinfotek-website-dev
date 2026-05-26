@@ -34,12 +34,21 @@
 </head>
 <body class="hero-bg min-h-screen">
 
-  <!-- Full Stretch Top Bar -->
+  <!-- Top Bar -->
   <header class="bg-white py-6 shadow-sm border-b border-slate-200">
-    <div class="w-full px-6">
-      <h1 class="text-3xl font-black tracking-tight text-center text-primary">
-        AR INFOTEK - Application for Internship
+    <div class="max-w-screen-2xl mx-auto px-8 flex items-center w-full">
+      
+      <!-- Logo Full Left -->
+      <img src="arinfotek_logo.png" alt="AR INFOTEK" class="h-14 w-auto flex-shrink-0">
+
+      <!-- Big Text with MORE Spacing -->
+      <h1 class="flex-1 text-5xl font-black tracking-[0.08em] text-primary text-center px-16">
+        Application for Internship
       </h1>
+
+      <!-- Right spacer -->
+      <div class="w-14"></div>
+
     </div>
   </header>
 
@@ -56,6 +65,7 @@
             enctype="multipart/form-data"
             class="space-y-8">
 
+        <!-- Form Fields -->
         <div class="grid md:grid-cols-2 gap-6">
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">Full Name <span class="text-red-500">*</span></label>
@@ -98,15 +108,28 @@
             <input type="text" name="entry.1573054466" required class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary">
           </div>
           <div>
-            <label class="block text-sm font-semibold text-slate-700 mb-2">Course</label>
-            <input type="text" name="entry.2146682057" class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary">
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Degree <span class="text-red-500">*</span></label>
+            <select name="entry.2146682057" required class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary bg-white">
+              <option value="">Select Degree</option>
+              <option value="Diploma">Diploma</option>
+              <option value="B.E">B.E</option>
+              <option value="B.Tech">B.Tech</option>
+              <option value="MCA">MCA</option>
+              <option value="MSC">MSC</option>
+              <option value="BSC">BSC</option>
+            </select>
           </div>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
           <div>
-            <label class="block text-sm font-semibold text-slate-700 mb-2">Department</label>
-            <input type="text" name="entry.663595307" class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary">
+            <label class="block text-sm font-semibold text-slate-700 mb-2">Branch <span class="text-red-500">*</span></label>
+            <select name="entry.663595307" required class="w-full px-6 py-4 rounded-2xl border border-slate-300 focus:border-primary bg-white">
+              <option value="">Select Branch</option>
+              <option value="Computer science">Computer Science</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Electronics and communication">Electronics and Communication</option>
+            </select>
           </div>
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">Year <span class="text-red-500">*</span></label>
@@ -128,6 +151,7 @@
               <option value="third">Third</option>
               <option value="fourth">Fourth</option>
               <option value="fifth">Fifth</option>
+              <option value="sixth">Sixth</option>
             </select>
           </div>
         </div>
