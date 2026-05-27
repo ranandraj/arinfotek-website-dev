@@ -164,7 +164,7 @@
   <script>
     window.onload = function () {
       const form = document.getElementById("myForm");
-      const iframe = document.querySelector("iframe");
+      const iframe = document.querySelector("iframe[name='hidden_iframe']");
 
       form.onsubmit = () => setTimeout(showThankYou, 1200);
       iframe.onload = showThankYou;
@@ -172,12 +172,18 @@
 
     function showThankYou() {
       document.querySelector('.form-card').innerHTML = `
-        <div class="text-center py-20 px-6">
+        <div class="text-center py-10 px-6">
           <div class="text-7xl mb-6">✅</div>
           <h2 class="text-3xl font-bold text-green-600 mb-3">Application Submitted Successfully!</h2>
-          <p class="text-slate-600 text-lg">Thank you! Our team will review your application and contact you soon.</p>
+          <p class="text-slate-600 text-lg mb-8">Thank you! Our team will review your application and contact you soon.</p>
+          
+          <h3 class="text-xl font-bold text-slate-800 mb-4">Here's the location of AR INFOTEK</h3>
+          <div class="mb-8 flex justify-center">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d486.4213937077791!2d77.8286465!3d12.754392!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae71a5d53d7caf%3A0x9aede77509d8ef1e!2sAR%20TUITION%20CENTRE%20%2F%20AR%20INFOTEK!5e0!3m2!1sen!2sin!4v1779876112459!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-2xl max-w-xl shadow-md border border-slate-200"></iframe>
+          </div>
+
           <button onclick="location.reload()"
-            class="mt-10 px-10 py-4 bg-primary text-white font-bold rounded-2xl hover:bg-blue-700 transition">
+            class="px-10 py-4 bg-primary text-white font-bold rounded-2xl hover:bg-blue-700 transition">
             Submit Another Application
           </button>
         </div>
