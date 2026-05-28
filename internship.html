@@ -1,9 +1,11 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Internship Application - AR INFOTEK</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: { extend: { colors: { primary: '#1e5aa8', accent: '#ff891c' } } }
@@ -13,15 +15,56 @@
     body { font-family: 'Inter', sans-serif; }
     .hero-bg { background: linear-gradient(to bottom right, #1e5aa8, #103466, #0f172a); }
     .form-card { background: rgba(255,255,255,0.95); backdrop-filter: blur(16px); }
-    input, select, textarea {
-      outline: none;
-      transition: border-color 0.2s;
-    }
+
+    input, select, textarea { outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
     input:focus, select:focus, textarea:focus {
       border-color: #1e5aa8;
       box-shadow: 0 0 0 3px rgba(30,90,168,0.1);
     }
-  </style></head><body class="hero-bg min-h-screen">
+
+    /* Valid */
+    input.valid, select.valid, textarea.valid {
+      border-color: #16a34a !important;
+      box-shadow: 0 0 0 3px rgba(22,163,74,0.1) !important;
+    }
+    /* Invalid */
+    input.invalid, select.invalid, textarea.invalid {
+      border-color: #dc2626 !important;
+      box-shadow: 0 0 0 3px rgba(220,38,38,0.1) !important;
+    }
+
+    .field-error {
+      color: #dc2626;
+      font-size: 0.78rem;
+      margin-top: 5px;
+      display: none;
+      align-items: center;
+      gap: 4px;
+    }
+    .field-error.show { display: flex; }
+
+    /* Tick icon */
+    .input-wrapper { position: relative; }
+    .input-wrapper .tick {
+      position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+      color: #16a34a; font-size: 1.1rem; display: none; pointer-events: none;
+    }
+    .input-wrapper input.valid ~ .tick,
+    .input-wrapper select.valid ~ .tick { display: block; }
+
+    /* Spinner */
+    .spinner {
+      border: 3px solid rgba(255,255,255,0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      width: 22px; height: 22px;
+      animation: spin 0.8s linear infinite;
+      display: inline-block; vertical-align: middle;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body class="hero-bg min-h-screen">
 
   <header class="bg-white py-6 shadow-sm border-b border-slate-200">
     <div class="max-w-screen-2xl mx-auto px-8 flex items-center relative w-full">
@@ -33,125 +76,195 @@
   </header>
 
   <div class="max-w-3xl mx-auto px-6 py-12">
-    <div class="form-card rounded-3xl p-10 shadow-2xl border border-white/20">
+    <div class="text-center mb-12">
+      <h2 class="text-5xl font-black text-white leading-tight">Internship Application</h2>
+    </div>
+
+    <div class="form-card rounded-3xl p-10 shadow-2xl border border-white/20" id="formWrapper">
       <form id="myForm"
             action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSecUB6CIz1nubruzj1BUYkHrHNPILcG3AHSO5h19Am16U-iyg/formResponse"
             method="POST"
             target="hidden_iframe"
-            class="space-y-8">
+            class="space-y-7">
 
+        <!-- Name + DOB -->
         <div class="grid md:grid-cols-2 gap-6">
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">Full Name <span class="text-red-500">*</span></label>
-            <input type="text" name="entry.1367685117" required
-              class="w-full px-6 py-4 rounded-2xl border border-slate-300 text-lg">
+            <div class="input-wrapper">
+              <input type="text" name="entry.1367685117" id="name" required
+                placeholder="Use only letters and spaces"
+                class="w-full px-6 py-4 pr-10 rounded-2xl border border-slate-300 text-lg">
+              <span class="tick">✓</span>
+            </div>
+            <p class="field-error" id="nameErr">⚠ Please enter a valid name using letters only</p>
           </div>
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">Date of Birth <span class="text-red-500">*</span></label>
-            <input type="date" name="entry.1946924470" required
-              class="w-full px-6 py-4 rounded-2xl border border-slate-300">
+            <div class="input-wrapper">
+              <input type="date" name="entry.1946924470" id="dob" required
+                class="w-full px-6 py-4 rounded-2xl border border-slate-300">
+            </div>
+            <p class="field-error" id="dobErr">⚠ Enter your correct date of birth</p>
           </div>
         </div>
 
+        <!-- Gender -->
         <div>
           <label class="block text-sm font-semibold text-slate-700 mb-2">Gender <span class="text-red-500">*</span></label>
-          <select name="entry.675238853" required
-            class="w-full px-6 py-4 rounded-2xl border border-slate-300 bg-white">
-            <option value="">Choose</option>
-            <option value="MALE">MALE</option>
-            <option value="FEMALE">FEMALE</option>
-          </select>
+          <div class="input-wrapper">
+            <select name="entry.675238853" id="gender" required
+              class="w-full px-6 py-4 rounded-2xl border border-slate-300 bg-white">
+              <option value="">Choose your gender</option>
+              <option value="MALE">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <span class="tick">✓</span>
+          </div>
+          <p class="field-error" id="genderErr">⚠ Please select your gender</p>
         </div>
 
+        <!-- Contact Numbers -->
         <div class="grid md:grid-cols-2 gap-6">
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">Contact Number <span class="text-red-500">*</span></label>
-            <input type="text" name="entry.1805792394" required
-              class="w-full px-6 py-4 rounded-2xl border border-slate-300">
+            <div class="input-wrapper">
+              <input type="tel" name="entry.1805792394" id="contact" required
+                placeholder="10 digit mobile number"
+                maxlength="10"
+                class="w-full px-6 py-4 pr-10 rounded-2xl border border-slate-300">
+              <span class="tick">✓</span>
+            </div>
+            <p class="field-error" id="contactErr">⚠ Enter a valid 10-digit number</p>
           </div>
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">Alternate Number <span class="text-red-500">*</span></label>
-            <input type="text" name="entry.181938629" required
-              class="w-full px-6 py-4 rounded-2xl border border-slate-300">
+            <div class="input-wrapper">
+              <input type="tel" name="entry.181938629" id="alternate" required
+                placeholder="10 digit mobile number"
+                maxlength="10"
+                class="w-full px-6 py-4 pr-10 rounded-2xl border border-slate-300">
+              <span class="tick">✓</span>
+            </div>
+            <p class="field-error" id="alternateErr">⚠ Enter a valid 10-digit number</p>
           </div>
         </div>
 
+        <!-- Home Address -->
         <div>
           <label class="block text-sm font-semibold text-slate-700 mb-2">Home Address <span class="text-red-500">*</span></label>
-          <textarea name="entry.1238312499" rows="3" required
+          <textarea name="entry.1238312499" id="address" rows="3" required
+            placeholder="Enter your full home address"
             class="w-full px-6 py-4 rounded-2xl border border-slate-300"></textarea>
+          <p class="field-error" id="addressErr">⚠ Please enter your home address</p>
         </div>
 
+        <!-- College Name -->
         <div>
           <label class="block text-sm font-semibold text-slate-700 mb-2">College Name <span class="text-red-500">*</span></label>
-          <input type="text" name="entry.1573054466" required
-            class="w-full px-6 py-4 rounded-2xl border border-slate-300">
+          <div class="input-wrapper">
+            <input type="text" name="entry.1573054466" id="college" required
+              placeholder="Enter your college name"
+              class="w-full px-6 py-4 pr-10 rounded-2xl border border-slate-300">
+            <span class="tick">✓</span>
+          </div>
+          <p class="field-error" id="collegeErr">⚠ Please enter your college name</p>
         </div>
 
+        <!-- Degree -->
         <div>
           <label class="block text-sm font-semibold text-slate-700 mb-2">Degree <span class="text-red-500">*</span></label>
-          <select name="entry.2146682057" required
-            class="w-full px-6 py-4 rounded-2xl border border-slate-300 bg-white">
-            <option value="">Choose</option>
-            <option value="Diploma">Diploma</option>
-            <option value="B.E.">B.E</option>
-            <option value="B.Tech.">B.Tech</option>
-            <option value="Mca">MCA</option>
-            <option value="Msc">MSc</option>
-            <option value="Bsc">BSc</option>
-            <option value="BCA">BCA</option>
-          </select>
+          <div class="input-wrapper">
+            <select name="entry.2146682057" id="degree" required
+              class="w-full px-6 py-4 rounded-2xl border border-slate-300 bg-white">
+              <option value="">Select your degree</option>
+              <option value="Diploma">Diploma</option>
+              <option value="B.E.">B.E</option>
+              <option value="B.Tech.">B.Tech</option>
+              <option value="Mca">MCA</option>
+              <option value="Msc">MSc</option>
+              <option value="Bsc">BSc</option>
+              <option value="BCA">BCA</option>
+            </select>
+            <span class="tick">✓</span>
+          </div>
+          <p class="field-error" id="degreeErr">⚠ Please select your degree</p>
         </div>
 
+        <!-- Branch -->
         <div>
           <label class="block text-sm font-semibold text-slate-700 mb-2">Branch <span class="text-red-500">*</span></label>
-          <select name="entry.663595307" required
-            class="w-full px-6 py-4 rounded-2xl border border-slate-300 bg-white">
-            <option value="">Choose</option>
-            <option value="Computer Science">Computer Science</option>
-            <option value="Information Technology">Information Technology</option>
-            <option value="Electronics and Communication">Electronics and Communication</option>
-          </select>
+          <div class="input-wrapper">
+            <select name="entry.663595307" id="branch" required
+              class="w-full px-6 py-4 rounded-2xl border border-slate-300 bg-white">
+              <option value="">Select your branch</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Electronics and Communication">Electronics and Communication</option>
+            </select>
+            <span class="tick">✓</span>
+          </div>
+          <p class="field-error" id="branchErr">⚠ Please select your branch</p>
         </div>
 
+        <!-- Year + Semester -->
         <div class="grid md:grid-cols-2 gap-6">
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">Year <span class="text-red-500">*</span></label>
-            <select name="entry.1419686933" required
-              class="w-full px-6 py-4 rounded-2xl border border-slate-300 bg-white">
-              <option value="">Choose</option>
-              <option value="First">First</option>
-              <option value="Second">Second</option>
-              <option value="Third">Third</option>
-              <option value="Fourth">Fourth</option>
-              <option value="Fifth">Fifth</option>
-            </select>
+            <div class="input-wrapper">
+              <select name="entry.1419686933" id="year" required
+                class="w-full px-6 py-4 rounded-2xl border border-slate-300 bg-white">
+                <option value="">Select year</option>
+                <option value="First">First</option>
+                <option value="Second">Second</option>
+                <option value="Third">Third</option>
+                <option value="Fourth">Fourth</option>
+                <option value="Fifth">Fifth</option>
+              </select>
+              <span class="tick">✓</span>
+            </div>
+            <p class="field-error" id="yearErr">⚠ Please select your year</p>
           </div>
           <div>
             <label class="block text-sm font-semibold text-slate-700 mb-2">Semester <span class="text-red-500">*</span></label>
-            <select name="entry.1118309627" required
-              class="w-full px-6 py-4 rounded-2xl border border-slate-300 bg-white">
-              <option value="">Choose</option>
-              <option value="First">First</option>
-              <option value="Second">Second</option>
-              <option value="Third">Third</option>
-              <option value="Fourth">Fourth</option>
-              <option value="FIfth">FIfth</option>
-              <option value="Sixth">Sixth</option>
-            </select>
+            <div class="input-wrapper">
+              <select name="entry.1118309627" id="semester" required
+                class="w-full px-6 py-4 rounded-2xl border border-slate-300 bg-white">
+                <option value="">Select semester</option>
+                <option value="First">First</option>
+                <option value="Second">Second</option>
+                <option value="Third">Third</option>
+                <option value="Fourth">Fourth</option>
+                <option value="Fifth">Fifth</option>
+                <option value="Sixth">Sixth</option>
+              </select>
+              <span class="tick">✓</span>
+            </div>
+            <p class="field-error" id="semesterErr">⚠ Please select your semester</p>
           </div>
         </div>
 
+        <!-- Student Registration ID -->
         <div>
-          <label class="block text-sm font-semibold text-slate-700 mb-2">Student Registration ID (as given in college ID card) <span class="text-red-500">*</span></label>
-          <input type="text" name="entry.1158056919" required
-            class="w-full px-6 py-4 rounded-2xl border border-slate-300">
+          <label class="block text-sm font-semibold text-slate-700 mb-2">
+            Student Registration ID <span class="text-red-500">*</span>
+            <span class="font-normal text-slate-400 text-xs ml-1">(as given in college ID card)</span>
+          </label>
+          <div class="input-wrapper">
+            <input type="text" name="entry.1158056919" id="regid" required
+              placeholder="Enter your registration ID"
+              class="w-full px-6 py-4 pr-10 rounded-2xl border border-slate-300">
+            <span class="tick">✓</span>
+          </div>
+          <p class="field-error" id="regidErr">⚠ Please enter your registration ID</p>
         </div>
 
-        <button type="submit"
-          class="w-full py-6 bg-gradient-to-r from-accent to-orange-600 text-white font-bold text-lg rounded-2xl hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mt-8">
+        <!-- Submit -->
+        <button type="submit" id="submitBtn"
+          class="w-full py-5 bg-gradient-to-r from-accent to-orange-600 text-white font-bold text-lg rounded-2xl hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 mt-4">
           Submit Internship Application
         </button>
+
       </form>
     </div>
   </div>
@@ -159,32 +272,170 @@
   <iframe name="hidden_iframe" style="display:none;"></iframe>
 
   <script>
-    window.onload = function () {
-      const form = document.getElementById("myForm");
-      const iframe = document.querySelector("iframe[name='hidden_iframe']");
+  // ── Helpers ───────────────────────────────────────────────────
+  function setValid(id) {
+    var el = document.getElementById(id);
+    el.classList.remove('invalid'); el.classList.add('valid');
+    hideErr(id + 'Err');
+  }
+  function setInvalid(id) {
+    var el = document.getElementById(id);
+    el.classList.remove('valid'); el.classList.add('invalid');
+    showErr(id + 'Err');
+  }
+  function clearState(id) {
+    var el = document.getElementById(id);
+    el.classList.remove('valid','invalid');
+    hideErr(id + 'Err');
+  }
+  function showErr(errId) { var e = document.getElementById(errId); if(e) e.classList.add('show'); }
+  function hideErr(errId) { var e = document.getElementById(errId); if(e) e.classList.remove('show'); }
 
-      form.onsubmit = () => setTimeout(showThankYou, 1200);
-      iframe.onload = showThankYou;
-    };
+  // ── Age check ─────────────────────────────────────────────────
+  function isAtLeast15(dateStr) {
+    if (!dateStr) return false;
+    var dob = new Date(dateStr), today = new Date();
+    var age = today.getFullYear() - dob.getFullYear();
+    var m   = today.getMonth() - dob.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+    return age >= 15;
+  }
 
-    function showThankYou() {
-      document.querySelector('.form-card').innerHTML = `
-        <div class="text-center py-10 px-6">
-          <div class="text-7xl mb-6">✅</div>
-          <h2 class="text-3xl font-bold text-green-600 mb-3">Application Submitted Successfully!</h2>
-          <p class="text-slate-600 text-lg mb-8">Thank you! Our team will review your application and contact you soon.</p>
-          
-          <h3 class="text-xl font-bold text-slate-800 mb-4">Here's the location of AR INFOTEK</h3>
-          <div class="mb-8 flex justify-center">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d486.4213937077791!2d77.8286465!3d12.754392!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae71a5d53d7caf%3A0x9aede77509d8ef1e!2sAR%20TUITION%20CENTRE%20%2F%20AR%20INFOTEK!5e0!3m2!1sen!2sin!4v1779876112459!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-2xl max-w-xl shadow-md border border-slate-200"></iframe>
-          </div>
+  // ── NAME ──────────────────────────────────────────────────────
+  document.getElementById('name').addEventListener('input', function() {
+    var pos = this.selectionStart;
+    var clean = this.value.replace(/[^a-zA-Z\s]/g, '');
+    if (clean !== this.value) { this.value = clean; this.setSelectionRange(pos-1, pos-1); }
+    if (this.value.trim().length >= 2) setValid('name');
+    else if (this.value.length > 0)    setInvalid('name');
+    else                               clearState('name');
+  });
 
-          <button onclick="location.reload()"
-            class="px-10 py-4 bg-primary text-white font-bold rounded-2xl hover:bg-blue-700 transition">
-            Submit Another Application
-          </button>
-        </div>
-      `;
+  // ── DOB ───────────────────────────────────────────────────────
+  document.getElementById('dob').addEventListener('change', function() {
+    if (!this.value) { clearState('dob'); return; }
+    if (isAtLeast15(this.value)) setValid('dob');
+    else                         setInvalid('dob');
+  });
+
+  // ── GENDER ───────────────────────────────────────────────────
+  document.getElementById('gender').addEventListener('change', function() {
+    if (this.value) setValid('gender'); else setInvalid('gender');
+  });
+
+  // ── PHONE (contact + alternate) ───────────────────────────────
+  function phoneValidator(id) {
+    var el = document.getElementById(id);
+    el.addEventListener('input', function() {
+      var pos = this.selectionStart;
+      var clean = this.value.replace(/\D/g, '');
+      if (clean !== this.value) { this.value = clean; this.setSelectionRange(pos-1, pos-1); }
+      if (this.value.length === 10) setValid(id);
+      else if (this.value.length > 0) setInvalid(id);
+      else clearState(id);
+    });
+    el.addEventListener('keypress', function(e) { if (!/[0-9]/.test(e.key)) e.preventDefault(); });
+    el.addEventListener('paste', function(e) {
+      e.preventDefault();
+      var digits = (e.clipboardData||window.clipboardData).getData('text').replace(/\D/g,'').slice(0,10);
+      this.value = digits;
+      this.dispatchEvent(new Event('input'));
+    });
+  }
+  phoneValidator('contact');
+  phoneValidator('alternate');
+
+  // ── ADDRESS ───────────────────────────────────────────────────
+  document.getElementById('address').addEventListener('input', function() {
+    if (this.value.trim().length > 5) setValid('address');
+    else if (this.value.length > 0)   setInvalid('address');
+    else                               clearState('address');
+  });
+
+  // ── COLLEGE ───────────────────────────────────────────────────
+  document.getElementById('college').addEventListener('input', function() {
+    if (this.value.trim().length >= 3) setValid('college');
+    else if (this.value.length > 0)    setInvalid('college');
+    else                               clearState('college');
+  });
+
+  // ── DROPDOWNS ─────────────────────────────────────────────────
+  ['degree','branch','year','semester'].forEach(function(id) {
+    document.getElementById(id).addEventListener('change', function() {
+      if (this.value) setValid(id); else setInvalid(id);
+    });
+  });
+
+  // ── REG ID ───────────────────────────────────────────────────
+  document.getElementById('regid').addEventListener('input', function() {
+    if (this.value.trim().length >= 2) setValid('regid');
+    else if (this.value.length > 0)    setInvalid('regid');
+    else                               clearState('regid');
+  });
+
+  // ── SUBMIT ───────────────────────────────────────────────────
+  var formSubmitted = false;
+
+  document.getElementById('myForm').addEventListener('submit', function(e) {
+    var valid = true;
+
+    if (document.getElementById('name').value.trim().length < 2)       { setInvalid('name');     valid = false; }
+    if (!document.getElementById('dob').value || !isAtLeast15(document.getElementById('dob').value)) { setInvalid('dob'); valid = false; }
+    if (!document.getElementById('gender').value)                       { setInvalid('gender');   valid = false; }
+    if (document.getElementById('contact').value.length !== 10)         { setInvalid('contact');  valid = false; }
+    if (document.getElementById('alternate').value.length !== 10)       { setInvalid('alternate');valid = false; }
+    if (document.getElementById('address').value.trim().length < 6)     { setInvalid('address');  valid = false; }
+    if (document.getElementById('college').value.trim().length < 3)     { setInvalid('college');  valid = false; }
+    if (!document.getElementById('degree').value)                       { setInvalid('degree');   valid = false; }
+    if (!document.getElementById('branch').value)                       { setInvalid('branch');   valid = false; }
+    if (!document.getElementById('year').value)                         { setInvalid('year');     valid = false; }
+    if (!document.getElementById('semester').value)                     { setInvalid('semester'); valid = false; }
+    if (document.getElementById('regid').value.trim().length < 2)       { setInvalid('regid');    valid = false; }
+
+    if (!valid) {
+      e.preventDefault();
+      var first = document.querySelector('.invalid');
+      if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
     }
+
+    // Valid — show loading
+    var btn = document.getElementById('submitBtn');
+    btn.innerHTML = '<span class="spinner"></span>&nbsp; Submitting...';
+    btn.disabled  = true;
+    formSubmitted = true;
+
+    // Show thank you after 2s
+    setTimeout(showThankYou, 2000);
+  });
+
+  // ── Thank You with Map ────────────────────────────────────────
+  function showThankYou() {
+    document.getElementById('formWrapper').innerHTML = `
+      <div class="text-center py-10 px-6">
+        <div class="text-7xl mb-6">✅</div>
+        <h2 class="text-3xl font-bold text-green-600 mb-3">Application Submitted Successfully!</h2>
+        <p class="text-slate-600 text-lg mb-8">Thank you! Our team will review your application and contact you soon.</p>
+
+        <h3 class="text-xl font-bold text-slate-800 mb-4">Here's the location of AR INFOTEK</h3>
+        <div class="mb-8 flex justify-center">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d486.4213937077791!2d77.8286465!3d12.754392!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae71a5d53d7caf%3A0x9aede77509d8ef1e!2sAR%20TUITION%20CENTRE%20%2F%20AR%20INFOTEK!5e0!3m2!1sen!2sin!4v1779876112459!5m2!1sen!2sin"
+            width="100%" height="400"
+            style="border:0;"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="rounded-2xl w-full max-w-xl shadow-md border border-slate-200">
+          </iframe>
+        </div>
+
+        <button onclick="location.reload()"
+          class="px-10 py-4 bg-primary text-white font-bold rounded-2xl hover:bg-blue-700 transition">
+          Submit Another Application
+        </button>
+      </div>
+    `;
+  }
   </script>
-</body></html>
+</body>
+</html>
